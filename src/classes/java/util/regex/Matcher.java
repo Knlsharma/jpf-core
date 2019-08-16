@@ -67,6 +67,8 @@ public class Matcher {
   public native boolean matches();
   
   public native boolean find();
+
+  public native boolean find(int start);
   
   public native boolean lookingAt();
   
@@ -89,6 +91,13 @@ public class Matcher {
   public native boolean hasAnchoringBounds();
 
   public native Matcher useAnchoringBounds(boolean b);
+
+  public Matcher usePattern(Pattern newPattern){
+    this.pattern = newPattern;
+    return updatePattern();
+  }
+
+  public native Matcher updatePattern();
 
   public native int regionStart();
 
